@@ -7,10 +7,35 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "day1": "node --loader ts-node/esm day1/index.ts"
+    "day1": "node --loader ts-node/esm day1/index.ts",
+    "day2": "node --loader ts-node/esm day2/index.ts",
+    "day3": "node --loader ts-node/esm day3/index.ts",
+    "day4": "node --loader ts-node/esm day4/index.ts",
+    "day5": "node --loader ts-node/esm day5/index.ts",
+    "day6": "node --loader ts-node/esm day6/index.ts",
+    "day7": "node --loader ts-node/esm day7/index.ts",
+    "day8": "node --loader ts-node/esm day8/index.ts",
+    "day9": "node --loader ts-node/esm day9/index.ts",
+    "day10": "node --loader ts-node/esm day10/index.ts",
+    "day11": "node --loader ts-node/esm day11/index.ts",
+    "day12": "node --loader ts-node/esm day12/index.ts",
+    "day13": "node --loader ts-node/esm day13/index.ts",
+    "day14": "node --loader ts-node/esm day14/index.ts",
+    "day15": "node --loader ts-node/esm day15/index.ts",
+    "day16": "node --loader ts-node/esm day16/index.ts",
+    "day17": "node --loader ts-node/esm day17/index.ts",
+    "day18": "node --loader ts-node/esm day18/index.ts",
+    "day19": "node --loader ts-node/esm day19/index.ts",
+    "day20": "node --loader ts-node/esm day20/index.ts",
+    "day21": "node --loader ts-node/esm day21/index.ts",
+    "day22": "node --loader ts-node/esm day22/index.ts",
+    "day23": "node --loader ts-node/esm day23/index.ts",
+    "day24": "node --loader ts-node/esm day24/index.ts",
+    "day25": "node --loader ts-node/esm day25/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "type": "module"
 }
