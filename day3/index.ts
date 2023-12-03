@@ -102,7 +102,7 @@ function part2(){
                 // check if character above, below, left, right or diagonal is a number
 
                 //above
-                if(lines[i-1][j].match(/\d/)){
+                if(i > 0 && lines[i-1][j].match(/\d/)){
                     const n = findFullNumber(i-1, j)
                     if(n != 0){
                         numCounter++;
@@ -111,7 +111,7 @@ function part2(){
                 }
 
                 //below
-                if(lines[i+1][j].match(/\d/)){
+                if(i < (fileLength-1) && lines[i+1][j].match(/\d/)){
                     const n = findFullNumber(i+1, j);
                     if (n != 0){
                         numCounter++;
@@ -120,7 +120,7 @@ function part2(){
                 }
 
                 //left
-                if(lines[i][j-1].match(/\d/)){
+                if(j > 0 && lines[i][j-1].match(/\d/)){
                     const n = findFullNumber(i, j-1);
                     if (n != 0){
                         numCounter++;
@@ -129,7 +129,7 @@ function part2(){
                 }
 
                 //right
-                if(lines[i][j+1].match(/\d/)){
+                if(j < (lineLength-1) && lines[i][j+1].match(/\d/)){
                     const n = findFullNumber(i, j+1);
                     if (n != 0){
                         numCounter++;
@@ -138,7 +138,7 @@ function part2(){
                 }
 
                 //diagonal up left
-                if(lines[i-1][j-1].match(/\d/)){
+                if(i > 0 && j > 0 && lines[i-1][j-1].match(/\d/)){
                     const n = findFullNumber(i-1, j-1);
                     if (n != 0){
                         numCounter++;
@@ -147,7 +147,7 @@ function part2(){
                 }
 
                 //diagonal up right
-                if(lines[i-1][j+1].match(/\d/)){
+                if(i > 0 && j < (lineLength-1) && lines[i-1][j+1].match(/\d/)){
                     const n = findFullNumber(i-1, j+1);
                     if (n!= 0){
                         numCounter++;
@@ -156,7 +156,7 @@ function part2(){
                 }
 
                 //diagonal down left
-                if(lines[i+1][j-1].match(/\d/)){
+                if(j > 0 && i < (fileLength-1) && lines[i+1][j-1].match(/\d/)){
                     const n = findFullNumber(i+1, j-1);
                     if(n != 0){
                         numCounter++;
@@ -165,7 +165,7 @@ function part2(){
                 }
 
                 //diagonal down right
-                if(lines[i+1][j+1].match(/\d/)){
+                if(j < (lineLength-1) && i < (fileLength-1) && lines[i+1][j+1].match(/\d/)){
                     const n = findFullNumber(i+1, j+1);
                     if (n != 0){
                         numCounter++;
