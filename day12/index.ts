@@ -12,27 +12,41 @@ function part1(){
         const numOfDamaged: number[] = line.split(' ')[1].trim().split(',').map((num) => parseInt(num));
         var validSymbols = ['#', '.'];
         const symbols: string[] = line.split(' ')[0].trim().split('');
-        const unknownsLength: number = symbols.filter((symbol) => symbol === '?').length;
-        let winningsCount: number = 0;
-        let perms: string[] = validSymbols;
-        
-        for(let i = 0; i < unknownsLength-1; i++){
-            perms = perms.flatMap(d => validSymbols.map(v => d + v));
-        }
-        
-        // replace every unknown with each permutation and check if it is valid
-        perms.forEach(perm => {
-            let tempLine = line;
-            for(let i = 0; i < unknownsLength; i++){
-                tempLine = tempLine.replace('?', perm.charAt(i));
-            }
-            if(isValidCombo(tempLine, numOfDamaged)){
-                winningsCount++;
-            }
-        });
-        sum += winningsCount;
+
+        sum += generate_and_count(symbols, numOfDamaged, 0);
     });
     console.log(sum);
+}
+
+function generate_and_count(symbols: string[], numOfDamaged: number[], index: number): number {
+
+    if (index === symbols.length) {
+        const newLine = symbols.join('');
+        if(isValidCombo(newLine, numOfDamaged)){
+            return 1;
+        } else {
+            return 0;
+        }
+     }
+
+     let count = 0;
+
+     switch (symbols[index]) {
+         case '?':
+             let newSymbols = symbols.slice();
+             newSymbols[index] = '#';
+             count += generate_and_count(newSymbols, numOfDamaged, index + 1);
+             
+             newSymbols[index] = '.';
+             count += generate_and_count(newSymbols, numOfDamaged, index + 1);
+
+             break;
+         default:
+             count += generate_and_count(symbols, numOfDamaged, index + 1);
+             break;
+     }
+
+     return count;
 }
 
 function isValidCombo(newLine: string, numbers: number[]): boolean {
@@ -83,4 +97,9 @@ function findFirstDamaged(line: string, index: number){
     return -1;
 }
 
-//part1();
+function part2(){
+
+}
+
+part1();
+//part2();
